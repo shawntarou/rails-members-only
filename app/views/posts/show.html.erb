@@ -2,6 +2,9 @@
 
 <div>
   <% if user_signed_in? %>
+    <% if current_user == @post.user %>
+      <%= link_to "Edit Post", edit_post_path(@post) %>
+    <% end %>
     Author: <%= @post.user.username %>
   <% end %>
 </div>

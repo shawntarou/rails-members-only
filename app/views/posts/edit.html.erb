@@ -1,0 +1,17 @@
+<h1>Edit Post</h1>
+<%= link_to  "Back", @post %>
+<br><br>
+
+<%= form_with model: @post do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <br>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
