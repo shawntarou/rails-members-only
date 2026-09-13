@@ -4,6 +4,7 @@
   <% if user_signed_in? %>
     <% if current_user == @post.user %>
       <%= link_to "Edit Post", edit_post_path(@post) %>
+      <%= button_to "Delete Post", @post, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
     <% end %>
     Author: <%= @post.user.username %>
   <% end %>
