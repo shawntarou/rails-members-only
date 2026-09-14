@@ -1,20 +1,13 @@
-<h1>Posts</h1>
-
 <div id="posts">
-  <div>
-    <% if user_signed_in? %>
-      <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-      <%= button_to "New post", new_post_path, method: :get %>
-    <% else %>
-        <%= link_to "Login", new_user_session_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
-    <% end %>
-    <br><br>
-  </div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-  <% @posts.each do |post| %>
-    <div>
-      <%= link_to post.title, post %>
-    </div>
-  <% end %>
+  <h1>Posts</h1>
+  <div class="flex flex-col gap-10">
+    <% @posts.each do |post| %>
+      <div>
+        <%= link_to post.title, post %>
+      </div>
+    <% end %>
+  </div>
 </div>
