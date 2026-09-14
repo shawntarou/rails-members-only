@@ -2,32 +2,33 @@
 <html>
   <head>
     <title><%= content_for(:title) || "Members Only" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="application-name" content="Members Only"/>
-    <meta name="mobile-web-app-capable" content="yes"/>
-    <%= csrf_meta_tags %> 
-    <%= csp_meta_tag %> 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Members Only">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= yield :head %>
 
-    <link rel="icon" href="/icon.png" type="image/png"/>
-    <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
-    <link rel="apple-touch-icon" href="/icon.png"/>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %> <%=
-    stylesheet_link_tag :app, "data-turbo-track": "reload" %> <%=
-    javascript_importmap_tags %>
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
   <body class="prose mx-auto h-full text-2xl">
     <div class="flex gap-5 justify-end mt-8 mb-24">
-      <% if user_signed_in? %> 
-        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn"%> 
-        <%= button_to "New post", new_post_path, method: :get, class: "btn" %> 
-      <% else %> 
-      <%= link_to "Login", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path
-      %> <% end %>
+      <% if user_signed_in? %>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn" %>
+        <%= button_to "New post", new_post_path, method: :get, class: "btn" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>

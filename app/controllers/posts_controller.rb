@@ -21,11 +21,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-      if @post.save
-        redirect_to @post
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @post.save
+      redirect_to @post
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-      @post = Post.find(params.expect(:id))
+    @post = Post.find(params.expect(:id))
   end
 
   def post_params
